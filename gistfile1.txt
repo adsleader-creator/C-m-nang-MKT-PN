@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cẩm nang Marketing - Phan Nguyễn</title>
+    <style>
+        :root {
+            --bg-body: #f9f9f9;
+            --bg-card: #ffffff;
+            --text-main: #333333;
+            --text-muted: #888888;
+            --text-heading: #111111;
+            --border-color: #e5e5e5;
+            --accent-gold: #c49a45;
+            --accent-blue: #2c3e50;
+            --accent-green: #27ae60;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.5;
+            margin: 0;
+            padding: 0; 
+        }
+
+        /* --- CSS THANH MENU HEADER --- */
+        .top-navbar {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 16px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-navbar .logo-text {
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .top-navbar .logo-text span {
+            color: var(--accent-gold);
+            font-style: italic;
+        }
+
+        .top-navbar .tags {
+            display: flex;
+            gap: 10px;
+        }
+
+        .top-navbar .tag {
+            background-color: #333333;
+            color: #eeeeee;
+            font-size: 11px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .sub-navbar {
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--border-color);
+            padding: 0 40px;
+            display: flex;
+            gap: 24px;
+            font-size: 12px;
+            color: var(--text-muted);
+            overflow-x: auto; 
+            white-space: nowrap;
+            user-select: none;
+            -webkit-overflow-scrolling: touch; 
+        }
+
+        /* CSS HIỆU ỨNG TAB CHUYỂN ĐỔI */
+        .sub-navbar span {
+            padding: 14px 0;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .sub-navbar span:hover {
+            color: var(--text-heading);
+        }
+
+        .sub-navbar span.active {
+            color: var(--text-heading);
+            font-weight: 700;
+            border-bottom: 2px solid var(--accent-gold);
+            margin-bottom: -1px;
+        }
+
+        .tab-content {
+            display: none; 
+            animation: fadeIn 0.4s ease; 
+        }
+
+        .tab-content.active {
+            display: block; 
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ------------------------------------- */
+        .main-wrapper {
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* HEADER BOX */
+        .header-box {
+            background-color: var(--accent-gold); 
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            color: #ffffff;
+        }
+
+        .header-box .chapter {
+            font-size: 11px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.8);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .header-box h1 {
+            font-size: 32px;
+            color: #ffffff;
+            margin: 0 0 5px 0;
+            font-weight: 800;
+        }
+
+        .header-box h2 {
+            font-size: 20px;
+            color: rgba(255,255,255,0.9);
+            margin: 0 0 20px 0;
+            font-weight: 600;
+        }
+
+        .header-box p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.8);
+            max-width: 700px;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* SECTION TITLES */
+        .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin: 40px 0 20px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        /* CARDS */
+        .card {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        .card-label {
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--text-heading);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .card-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 20px;
+        }
+
+        /* GRID LAYOUTS */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+        
+        .quote-block {
+            border-left: 3px solid var(--accent-gold);
+            padding-left: 15px;
+            margin-top: 20px;
+        }
+        .quote-block p {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+        }
+        .quote-block p:last-child { margin-bottom: 0; }
+
+        /* MỚI CHO TAB 3: HIGHLIGHT BOX TÍNH NĂNG */
+        .highlight-box {
+            background-color: #fffaf0;
+            border: 1px solid #f2e2b6;
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .highlight-box-title {
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #b8860b;
+        }
+
+        /* LISTS */
+        ul.custom-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        ul.custom-list li {
+            font-size: 13px;
+            margin-bottom: 12px;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 16px;
+        }
+        ul.custom-list li::before {
+            content: "•";
+            color: var(--accent-gold);
+            font-weight: bold;
+            display: inline-block; 
+            width: 1em;
+            margin-left: -1em;
+            position: absolute;
+            left: 5px;
+        }
+        ul.custom-list li:last-child { margin-bottom: 0; }
+        
+        ol.custom-ol {
+            padding-left: 16px;
+            margin: 0;
+            font-size: 13px;
+        }
+        ol.custom-ol li {
+            margin-bottom: 15px;
+        }
+
+        /* SAVE MODEL CARDS */
+        .save-letter {
+            font-size: 10px;
+            font-weight: bold;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        .save-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .save-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* BẢNG BIỂU & CONTAINER CUỘN CHO BẢNG TRÊN ĐIỆN THOẠI */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-card);
+        }
+        
+        table {
+            width: 100%;
+            min-width: 400px; 
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+        th {
+            text-align: left;
+            padding: 15px;
+            font-weight: 700;
+            color: var(--text-heading);
+            border-bottom: 1px solid var(--border-color);
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 0.5px;
+            background-color: #fafafa;
+        }
+        td {
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-main);
+            vertical-align: top;
+            line-height: 1.6;
+        }
+        tr:last-child td { border-bottom: none; }
+
+        .sub-text {
+            font-size: 10px;
+            color: var(--text-muted);
+            display: block;
+            margin-top: 4px;
+        }
+        
+        .desc-text {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .empty-tab-notice {
+            text-align: center;
+            padding: 80px 20px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px dashed var(--border-color);
+            color: var(--text-muted);
+        }
+
+        /* --------------------------------------------------- */
+        /* CSS RESPONSIVE (DÀNH CHO ĐIỆN THOẠI & TABLET NHỎ)   */
+        /* --------------------------------------------------- */
+        @media (max-width: 768px) {
+            .top-navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                padding: 16px 20px;
+            }
+            .sub-navbar {
+                padding: 0 20px;
+            }
+            .main-wrapper {
+                padding: 20px 10px;
+            }
+            .header-box {
+                padding: 20px;
+            }
+            .header-box h1 {
+                font-size: 24px;
+            }
+            .header-box h2 {
+                font-size: 16px;
+            }
+            /* Phá vỡ lưới ngang để xếp thành 1 cột dọc trên điện thoại */
+            .grid-2, .grid-3, .grid-4 {
+                grid-template-columns: 1fr; 
+                gap: 15px;
+            }
+            .card {
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="top-navbar">
+    <div class="logo-text">Cẩm nang marketing <span>Phan Nguyễn</span> - Thực hiện bởi Bragg team</div>
+    <div class="tags">
+        <span class="tag">Tổng quát mọi ngành</span>
+    </div>
+</div>
+
+<div class="sub-navbar" id="tab-menu">
+    <span onclick="openTab(event, 'tab-0')">Tổng quan</span>
+    <span class="active" onclick="openTab(event, 'tab-1')">1· Chiến lược & Thương hiệu</span>
+    <span onclick="openTab(event, 'tab-2')">2· Kế hoạch Social Media</span>
+    <span onclick="openTab(event, 'tab-3')">3· Cấu trúc đội & KPI</span> </div>
+
+<div class="main-wrapper">
+    <div class="container">
+        
+        <div id="tab-0" class="tab-content">
+            <div class="empty-tab-notice">
+                <h2>Phần Tổng quan đang cập nhật</h2>
+                <p>Nội dung của chương này sẽ được bổ sung sau...</p>
+            </div>
+        </div>
+
+        <div id="tab-1" class="tab-content active">
+            <div class="header-box">
+                <div class="chapter">CHƯƠNG 1</div>
+                <h1>Chiến lược & Thương hiệu</h1>
+                <h2>SAVE Model • Phễu MKT • Hành trình KH</h2>
+                <p>Nền tảng chiến lược trước khi làm bất cứ điều gì: định vị thương hiệu, mô hình SAVE, phễu marketing đầy đủ, hành trình khách hàng và chuỗi mục tiêu từ kinh doanh → marketing → truyền thông.</p>
+            </div>
+
+            <div class="section-title">1.1 — Định vị thương hiệu</div>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-label">TEMPLATE ĐỊNH VỊ — ĐIỀN VÀ DÙNG NGAY</div>
+                    <div class="card-title">Câu tuyên ngôn định vị — guide mọi thông điệp</div>
+                    <div class="quote-block">
+                        <p>Dành cho <strong>[đối tượng cụ thể]</strong>,</p>
+                        <p>đang gặp vấn đề <strong>[vấn đề rõ ràng và đau]</strong>,</p>
+                        <p><strong>[Tên thương hiệu]</strong> là <strong>[loại sản phẩm/dịch vụ]</strong></p>
+                        <p>giúp họ <strong>[kết quả cụ thể, đo được]</strong>,</p>
+                        <p>khác biệt vì <strong>[điểm khác biệt không đối thủ nào có]</strong>.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-label">NHẬN DIỆN THƯƠNG HIỆU — 4 TRỤ CỘT</div>
+                    <div class="card-title">Brand Identity cần xác định rõ trước khi làm nội dung</div>
+                    <ul class="custom-list">
+                        <li><strong>Giá trị cốt lõi (3-5 giá trị):</strong> Lời hứa về Chất lượng sản phẩm, Cách đối xử với khách hàng, Đạo đức truyền thông.</li>
+                        <li><strong>Giọng điệu thương hiệu:</strong> 3 tính từ mô tả cách thương hiệu nói chuyện. Ai viết cũng phải nhất quán.</li>
+                        <li><strong>Lời hứa thương hiệu:</strong> 1 câu — kết quả hoặc trải nghiệm bạn cam kết mang lại mọi khách hàng.</li>
+                        <li><strong>Câu chuyện thương hiệu:</strong> Tại sao thương hiệu này tồn tại? Vấn đề gì tạo ra nó? Dùng trong nội dung "about" và onboarding.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-title">1.2 — Mô hình SAVE</div>
+            <div class="desc-text">
+                SAVE (Solution, Access, Value, Education) là tư duy từ phía khách hàng — phù hợp với marketing hiện đại khi khách hàng có đầy đủ thông tin và lựa chọn.
+            </div>
+            <div class="grid-4">
+                <div class="card">
+                    <div class="save-letter">S - SOLUTION</div>
+                    <div class="save-title">Giải pháp </div>
+                    <div class="save-desc">Thay vì hỏi "sản phẩm của bạn là gì", hỏi "vấn đề nào của khách hàng bạn đang giải quyết?". Mọi tính năng phải gắn với vấn đề thực tế.</div>
+                </div>
+                <div class="card">
+                    <div class="save-letter">A - ACCESS</div>
+                    <div class="save-title">Tiếp cận </div>
+                    <div class="save-desc">Nghĩ về cách khách hàng muốn tiếp cận sản phẩm/dịch vụ của bạn qua các nền tảng nào, thứ tự tiếp cận ra sao.</div>
+                </div>
+                <div class="card">
+                    <div class="save-letter">V - VALUE</div>
+                    <div class="save-title">Giá trị </div>
+                    <div class="save-desc">Thay vì chỉ định giá, xây dựng cảm nhận giá trị tổng thể: tại sao giá này xứng đáng? ROI của khách hàng là bao nhiêu? So sánh với chi phí không mua.</div>
+                </div>
+                <div class="card">
+                    <div class="save-letter">E - EDUCATION</div>
+                    <div class="save-title">Giáo dục </div>
+                    <div class="save-desc">Thay vì chỉ quảng cáo, giáo dục khách hàng hiểu vấn đề của họ và tại sao giải pháp của bạn phù hợp. Xây dựng niềm tin qua kiến thức.</div>
+                </div>
+            </div>
+
+            <div class="section-title">1.3 — Phễu Marketing đầy đủ (TOFU • MOFU • BOFU)</div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>GIAI ĐOẠN</th>
+                            <th>TÊN GỌI</th>
+                            <th>TRẠNG THÁI KHÁCH HÀNG</th>
+                            <th>MỤC TIÊU MARKETING</th>
+                            <th>LOẠI NỘI DUNG</th>
+                            <th>KÊNH CHÍNH</th>
+                            <th>KPI ĐO LƯỜNG</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>TOFU</strong></td>
+                            <td>Top of Funnel<span class="sub-text">Nhận biết</span></td>
+                            <td>Chưa biết đến bạn. Đang có vấn đề nhưng chưa tìm giải pháp.</td>
+                            <td>Xuất hiện trước mặt đúng người, đúng lúc, đúng thông điệp</td>
+                            <td>Video ngắn, infographic, social post giáo dục,Blog</td>
+                            <td>TikTok/Reels, Facebook/IG Ads, YouTube, Google, SEO, Shopee</td>
+                            <td>Lượt tiếp cận, lượt xem,...</td>
+                        </tr>
+                        <tr>
+                            <td><strong>MOFU</strong></td>
+                            <td>Middle of Funnel<span class="sub-text">Quan tâm & Đánh giá</span></td>
+                            <td>Đã biết đến bạn. Đang nghiên cứu và so sánh các giải pháp.</td>
+                            <td>Xây dựng niềm tin, chứng minh giá trị, giữ họ trong quỹ đạo</td>
+                            <td>Video đập hộp (Unboxing), Review thực tế (UGC), Livestream, Feedback tin nhắn, Hướng dẫn sử dụng.</td>
+                            <td>Retargeting Ads, Livestream, Facebook, TikTok Shop,...</td>
+                            <td>Số lead,thời gian trên website, CPL</td>
+                        </tr>
+                        <tr>
+                            <td><strong>BOFU</strong></td>
+                            <td>Bottom of Funnel<span class="sub-text">Quyết định</span></td>
+                            <td>Sẵn sàng mua. Cần lý do cuối để quyết định và giảm rủi ro.</td>
+                            <td>Chuyển đổi lead thành khách hàng, giảm ma sát mua hàng</td>
+                            <td>Flash Sale, Combo giá hời, Cam kết hoàn tiền/đền bù, social proof mạnh</td>
+                            <td>Sales team, ladipage, Retargeting chuyển đổi, TMĐT</td>
+                            <td>Số đơn hàng, doanh thu, chi phí/khách hàng</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Retention</strong></td>
+                            <td>Sau mua<span class="sub-text">Giữ chân & Giới thiệu</span></td>
+                            <td>Đã mua. Cần được chăm sóc để quay lại và giới thiệu người khác.</td>
+                            <td>Tăng Lifetime Value, xây loyalty, kích hoạt referral</td>
+                            <td>Kịch bản Resale, Voucher tặng sinh nhật/khách cũ, Quà tặng khi giới thiệu bạn bè, cộng đồng, ưu đãi tái mua</td>
+                            <td>Gọi điện CSKH, cộng đồng FB/Group</td>
+                            <td>Tỉ lệ tái mua, Net Promoter Score, Tỷ lệ hoàn/hủy đơn.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section-title">1.4 — Hành trình khách hàng chi tiết (Customer Journey)</div>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-label">5 ĐIỂM CHẠM QUAN TRỌNG NHẤT</div>
+                    <div class="card-title">Từng điểm chạm cần được thiết kế có chủ ý</div>
+                    <ol class="custom-ol">
+                        <li><strong>Điểm chạm đầu tiên (First Touch):</strong> Khách hàng biết đến bạn qua kênh nào? Thông điệp đầu tiên họ nhận là gì? Đây là ấn tượng đầu — không có cơ hội thứ hai.</li>
+                        <li><strong>Điểm nghiên cứu (Research):</strong> Họ đi đâu sau khi biết đến bạn? Website, Facebook Page, Google Reviewn Tiktok. Hỏi người quen? Đảm bảo những nơi đó nhất quán và thuyết phục.</li>
+                        <li><strong>Điểm quyết định (Decision):</strong> Khoảnh khắc họ quyết định mua. Thường là sau khi xem testimonial, nói chuyện với sales, hoặc thấy ưu đãi phù hợp.</li>
+                        <li><strong>Điểm mua hàng (Purchase):</strong> Trải nghiệm mua hàng có dễ dàng không? Quy trình thanh toán, xác nhận đơn, onboarding đầu tiên.</li>
+                        <li><strong>Điểm giới thiệu (Advocacy):</strong> Khách hàng hài lòng -> tự nhiên giới thiệu người khác. Cần được thiết kế, không chỉ chờ đợi.</li>
+                    </ol>
+                </div>
+                <div class="card">
+                    <div class="card-label">NỘI DUNG PHÙ HỢP TỪNG GIAI ĐOẠN HÀNH TRÌNH</div>
+                    <div class="card-title">Sai nội dung sai giai đoạn = không có kết quả</div>
+                    <div class="table-container">
+                        <table style="border: none; min-width: 400px;">
+                            <thead>
+                                <tr>
+                                    <th style="padding: 10px 5px;">GIAI ĐOẠN</th>
+                                    <th style="padding: 10px 5px;">NỘI DUNG NÊN LÀM</th>
+                                    <th style="padding: 10px 5px;">KHÔNG NÊN LÀM</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="padding: 10px 5px; font-weight: bold;">Nhận biết</td>
+                                    <td style="padding: 10px 5px;">Giáo dục, chia sẻ kiến thức, entertainment</td>
+                                    <td style="padding: 10px 5px;">Bán hàng trực tiếp, pitch sản phẩm</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px 5px; font-weight: bold;">Quan tâm</td>
+                                    <td style="padding: 10px 5px;">Case study, so sánh, hướng dẫn chuyên sâu</td>
+                                    <td style="padding: 10px 5px;">Nội dung quá cơ bản, quảng cáo sản phẩm</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px 5px; font-weight: bold;">Đánh giá</td>
+                                    <td style="padding: 10px 5px;">Testimonial, demo, FAQ, ưu đãi dùng thử</td>
+                                    <td style="padding: 10px 5px;">Nội dung giáo dục thuần túy không CTA</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px 5px; font-weight: bold;">Mua hàng</td>
+                                    <td style="padding: 10px 5px;">Ưu đãi giới hạn, hỗ trợ trực tiếp, đảm bảo</td>
+                                    <td style="padding: 10px 5px;">Thêm thông tin mới làm khách do dự</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 10px 5px; font-weight: bold;">Giữ chân</td>
+                                    <td style="padding: 10px 5px;">Tips sử dụng, cộng đồng, ưu đãi khách cũ</td>
+                                    <td style="padding: 10px 5px;">Chăm sóc sau bán yếu hoặc không có</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-title">1.5 — Chuỗi mục tiêu: Kinh doanh → Marketing → Truyền thông</div>
+            <div class="desc-text">
+                Nguyên tắc kết nối mục tiêu từ trên xuống dưới<br>
+                Mỗi mục tiêu truyền thông phải phục vụ mục tiêu marketing, và mỗi mục tiêu marketing phải phục vụ mục tiêu kinh doanh. Nếu không kết nối được chuỗi này, đó là công việc đang làm mà không biết tại sao.
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>CẤP ĐỘ</th>
+                            <th>VÍ DỤ MỤC TIÊU</th>
+                            <th>NGƯỜI CHỊU TRÁCH NHIỆM</th>
+                            <th>CHỈ SỐ ĐO (KPI)</th>
+                            <th>CHU KỲ ĐÁNH GIÁ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Kinh doanh</strong></td>
+                            <td>Đạt tổng doanh thu [X]/tháng. Tối ưu biên lợi nhuận gộp đạt [Y]%. Giảm tỷ lệ hoàn/hủy đơn xuống dưới [Z]%</td>
+                            <td>Ban Giám đốc</td>
+                            <td>Tổng doanh thu, Lợi nhuận gộp, Tỷ lệ hoàn hàng, Tỷ lệ khách mua lại.</td>
+                            <td>Hàng tháng / Quý</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Marketing</strong></td>
+                            <td>Kéo [X] đơn hàng mới/tháng. Tối ưu giá trị trung bình đơn lên [Y] VNĐ. Giữ chi phí có 1 khách mới dưới [Z] VNĐ</td>
+                            <td>Brand Manager / Marketing Lead</td>
+                            <td>Số đơn chốt thành công, AOV, CPA, Tỷ lệ chuyển đổi phễu (CVR).</td>
+                            <td>Hàng tuần/Hàng tháng</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Truyền thông</strong></td>
+                            <td>Đăng [X] bài/tháng. Sản xuất [Y] video review UGC. Tăng lượng tin nhắn hỏi mua tự nhiên lên [Z]%.</td>
+                            <td>Content Manager</td>
+                            <td>Social Post, View, Tương tác</td>
+                            <td>Hàng tuần</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Quảng cáo</strong></td>
+                            <td>Giá LEAD (CPL) < [X] VNĐ. Lợi nhuận trên chi phí Ads (ROAS) > [Y]. Tỷ lệ Click (CTR) > [Z]%</td>
+                            <td>Ads</td>
+                            <td>CPL/CPM, CTR, ROAS, Tỷ lệ ra số điện thoại.</td>
+                            <td>Hàng ngày / tuần</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section-title">1.6 — Lộ trình 6 tháng đầu</div>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-label">THÁNG 1-2: XÂY NỀN TẢNG</div>
+                    <div class="card-title">Không đốt ngân sách trước khi có nền tảng vững</div>
+                    <ol class="custom-ol" style="color: var(--text-muted);">
+                        <li>Hoàn thiện định vị thương hiệu và tài liệu guidelines/Tone giọng — cả team thống nhất.</li>
+                        <li>Tối ưu Landing Page/Shopee/TikTok, SEO cơ bản, điểm chạm chốt sale rõ ràng để tối ưu Tỷ lệ chuyển đổi.</li>
+                        <li>Thiết lập tracking: GA4, Meta Pixel, API</li>
+                        <li>Xây dựng kho Content Seeding ban đầu: Hình ảnh sản phẩm sắc nét, Video đập hộp (Unboxing), Feedback mồi để tạo Trust.</li>
+                        <li>Thiết lập kịch bản Trực page/Telesale: Lên trước các kịch bản xử lý từ chối (về giá, về chất lượng) và quy trình chốt đơn chuẩn.</li>
+                    </ol>
+                </div>
+                <div class="card">
+                    <div class="card-label">THÁNG 3-6: KÍCH HOẠT TĂNG TRƯỞNG</div>
+                    <div class="card-title">Bắt đầu chi ngân sách quảng cáo khi đã có dữ liệu</div>
+                    <ol class="custom-ol" style="color: var(--text-muted);">
+                        <li>Khởi động chiến dịch Retargeting (Bám đuổi): Nhắm lại những người đã xem video >50% hoặc đã Thêm vào giỏ hàng nhưng chưa thanh toán.</li>
+                        <li>Thu thập và đẩy mạnh Social Proof (Bảo chứng thực tế): Review của khách hàng thật, Video UGC (User-Generated Content).</li>
+                        <li>Khởi động Booking KOC/KOL ngách: Mượn sức ảnh hưởng để tạo độ phủ và kéo traffic mồi.</li>
+                        <li>Đo lường và tối ưu: kênh nào hiệu quả nhất? Scale ngân sách.</li>
+                        <li>Đánh giá toàn diện P&L.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-2" class="tab-content">
+            <div class="header-box" style="background-color: #2c3e50;">
+                <div class="chapter">CHƯƠNG 2</div>
+                <h1>Kế hoạch Triển khai Social Media</h1>
+                <h2>Chiến lược Đa kênh • Lộ trình • Phân bổ tài nguyên</h2>
+                <p>Bản thiết kế tổng thể áp dụng cho mọi nhãn hàng B2C/D2C mới của Phan Nguyễn. Từ việc chọn đúng nền tảng, xây dựng lộ trình ưu tiên đến phân bổ nhân sự thực chiến.</p>
+            </div>
+
+            <div class="section-title">2.1 — Tư duy chiến lược mạng xã hội (Omnichannel)</div>
+            <div class="card">
+                <div class="card-label">NGUYÊN LÝ CỐT LÕI</div>
+                <div class="card-title">"Tập trung mũi nhọn trước - Mở rộng hệ sinh thái sau"</div>
+                <div class="desc-text">Không dàn trải mọi nền tảng ngay từ ngày đầu. Mọi nhãn hàng mới đều phải đi theo trục 3 chân kiềng:</div>
+                <ul class="custom-list">
+                    <li><strong>Kênh Phễu (Traffic):</strong> Nơi tiếp cận tệp khách hàng lạ với chi phí rẻ nhất. Nhiệm vụ: Kéo người xem.</li>
+                    <li><strong>Kênh Hứng (Conversion):</strong> Nơi khách hàng tìm hiểu sâu, xem bằng chứng và ra quyết định. Nhiệm vụ: Chốt đơn.</li>
+                    <li><strong>Kênh Chăm sóc (Retention):</strong> Nơi lưu trữ data khách đã mua để bán lại vòng sau. Nhiệm vụ: Tăng Giá trị vòng đời khách hàng.</li>
+                </ul>
+            </div>
+
+            <div class="section-title">2.2 — Bản đồ Nền tảng & Tệp khách hàng</div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>NỀN TẢNG</th>
+                            <th>ĐẶC ĐIỂM TỆP KHÁCH HÀNG</th>
+                            <th>HÀNH VI CỐT LÕI</th>
+                            <th>VAI TRÒ TRONG PHỄU D2C</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Facebook (Page/Group)</strong></td>
+                            <td>25 - 55+ tuổi. Phổ rộng nhất tại Việt Nam. Đa dạng thu nhập.</td>
+                            <td>Đọc tin tức, tương tác cộng đồng. Thích được tư vấn kỹ lưỡng qua tin nhắn. Ra quyết định dựa trên niềm tin.</td>
+                            <td><strong>MOFU & BOFU:</strong> Kênh chốt sale chủ lực, chạy Ads chuyển đổi, xây dựng cộng đồng người dùng.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>TikTok</strong></td>
+                            <td>18 - 35 tuổi. Chiếm ưu thế Gen Z & Millennials.</td>
+                            <td>Lướt nhanh, tìm kiếm giải trí/review. Dễ phát sinh mua bốc đồng (Impulsive) qua Livestream/Video.</td>
+                            <td><strong>TOFU & BOFU:</strong> Tạo Viral kéo traffic siêu rẻ. Chốt đơn nhanh qua TikTok Shop.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Instagram</strong></td>
+                            <td>18 - 30 tuổi. Tập trung ở đô thị lớn. Lối sống hiện đại.</td>
+                            <td>Chuộng thẩm mỹ (Aesthetics), hình ảnh đẹp, lifestyle. Mua sắm dựa trên cảm xúc và định vị thương hiệu.</td>
+                            <td><strong>MOFU:</strong> Nâng tầm giá trị thương hiệu (Brand Image), phù hợp các sản phẩm định vị cao cấp/làm đẹp.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Zalo</strong></td>
+                            <td>100% là tệp đã có tương tác hoặc đã mua hàng.</td>
+                            <td>Không lướt Newsfeed nhiều. Xem Zalo là vùng riêng tư để làm việc và liên lạc người quen.</td>
+                            <td><strong>Retention:</strong> Chăm sóc khách cũ 1-1, gửi Voucher tái mua, xử lý khiếu nại (CSKH).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section-title">2.3 — Thứ tự ưu tiên xây kênh (Lộ trình chuẩn)</div>
+            <div class="grid-3">
+               <div class="card">
+                    <div class="card-label">GIAI ĐOẠN 1:</div>
+                    <div class="card-title">Sống sót & Bám rễ</div>
+                    <div class="desc-text">Mục tiêu: Ra đơn ngay để xác thực nhu cầu thị trường.</div>
+                    <ol class="custom-ol">
+                        <li><strong>Kênh mũi nhọn:</strong> Chọn 1 kênh duy nhất. Sản phẩm rẻ/visual đẹp -> Đánh TikTok. Sản phẩm cần tư vấn sâu -> Đánh FB Fanpage.</li>
+                        <li><strong>Kênh hứng đáy:</strong> Có thể thiết lập Zalo OA/Cá nhân hoặc CRM để lưu data khách mua.</li>
+                    </ol>
+                </div>
+                <div class="card">
+                    <div class="card-label">GIAI ĐOẠN 2:</div>
+                    <div class="card-title">Kích hoạt & Bao phủ</div>
+                    <div class="desc-text">Mục tiêu: Tối ưu chi phí và mở rộng điểm chạm.</div>
+                    <ol class="custom-ol">
+                        <li><strong>Tái chế nội dung (Repurpose):</strong> Đưa video ngắn phân phối chéo lên đa nền tảng: TikTok ➔ FB Reels ➔ YT Shorts.</li>
+                        <li><strong>Mượn lực (Social Proof):</strong> Triển khai chiến dịch Booking KOC/KOL để phủ review thực tế trên các nền tảng mạng xã hội.</li>
+                    </ol>
+                </div>
+                <div class="card">
+                    <div class="card-label">GIAI ĐOẠN 3:</div>
+                    <div class="card-title">Hệ sinh thái Bền vững</div>
+                    <div class="desc-text">Mục tiêu: Trở thành Top Of Mind trong tâm trí khách hàng.</div>
+                    <ul class="custom-list">
+                        <li>Xây dựng <strong>Group Facebook</strong> cộng đồng người dùng trung thành.</li>
+                        <li>Thiết lập các chương trình Livestream định kỳ đa nền tảng (Mega Sale).</li>
+                        <li>Mở rộng sang các kênh ngách (Instagram/YouTube) nếu tệp khách hàng tiềm năng yêu cầu.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-title">2.4 — Định vị nội dung tối ưu theo kênh</div>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-label">SHORT-FORM VIDEO (TIKTOK / REELS)</div>
+                    <div class="card-title">Tối ưu sự chú ý & Kéo Traffic</div>
+                    <ul class="custom-list">
+                        <li><strong>Nguyên tắc:</strong> 3 giây đầu (Hook) quyết định sống còn.</li>
+                        <li><strong>Định dạng ăn khách:</strong> Video Đập hộp (Unboxing), Review thực tế (UGC), Biến hình/Before-After, Giải đáp thắc mắc nhanh.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="card-label">FACEBOOK FANPAGE</div>
+                    <div class="card-title">Xây dựng Niềm tin & Chốt Sale</div>
+                    <ul class="custom-list">
+                        <li><strong>Nguyên tắc:</strong> Cung cấp đủ thông tin để khách hàng tin tưởng xuống tiền.</li>
+                        <li><strong>Định dạng ăn khách:</strong> Album ảnh chi tiết tính năng sản phẩm, Bài viết dài (Storytelling) kể chuyện, Hình ảnh giấy tờ kiểm định/Feedback.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="section-title">2.5 — Ma trận phân bổ tài nguyên (Nhân sự)</div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>QUY MÔ TEAM</th>
+                            <th>CHIẾN LƯỢC TRIỂN KHAI PHÙ HỢP</th>
+                            <th>KPI TRỌNG TÂM (FOCUS)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Siêu tinh gọn</strong><br><span class="sub-text">(1-2 Người)</span></td>
+                            <td><strong>Mô hình 1+1:</strong> 1 Kênh đẩy Traffic (VD: TikTok) + 1 Kênh Chốt sale (VD: Zalo/Landing Page).</td>
+                            <td>Tối đa hóa tỷ lệ chuyển đổi (CVR) trên kênh duy nhất. Tìm ra "Camp Win" nhanh nhất.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tiêu chuẩn</strong><br><span class="sub-text">(3-5 Người)</span></td>
+                            <td><strong>Đa kênh cơ bản:</strong> Facebook (Page) + TikTok (Video/Shop) + Booking KOC + Zalo (CSKH).</td>
+                            <td>Tối ưu chi phí ra đơn (CPA) trên nhiều nền tảng. Sản xuất nội dung đều đặn hàng tuần.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hệ sinh thái</strong><br><span class="sub-text">(>5 Người)</span></td>
+                            <td><strong>Omnichannel toàn diện:</strong> Phủ sóng mọi nền tảng + Xây dựng Group Cộng đồng + Đội ngũ Livestream in-house.</td>
+                            <td>Tối ưu biên lợi nhuận, tăng tỷ lệ khách hàng mua lặp lại (LTV), xây dựng Brand Love.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="tab-3" class="tab-content">
+            
+            <div class="header-box" style="background-color: #27ae60;"> <div class="chapter">CHƯƠNG 3</div>
+                <h1>Cấu trúc đội & KPI</h1>
+                <h2>Vai trò & Tiêu chuẩn: Content Producer</h2>
+                <p>Bộ tài liệu chuẩn hóa vị trí Content Producer trong team Marketing. Xác định rõ định hướng công việc, khối lượng (workload) cần đạt và các chỉ số đo lường hiệu suất, hiệu quả.</p>
+            </div>
+
+            <div class="section-title">3.1 — Tổng quan & Mục tiêu của vị trí</div>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-label">TỔNG QUAN VỊ TRÍ (OVERVIEW)</div>
+                    <div class="card-title">Trọng tâm của Content Engine</div>
+                    <div class="desc-text">
+                        Content Producer chịu trách nhiệm <strong>xây dựng và sản xuất nội dung marketing</strong> nhằm thu hút khách hàng, gia tăng nhận diện thương hiệu và hỗ trợ chuyển đổi khách hàng.<br><br>
+                        Vị trí này đóng vai trò trung tâm, đảm bảo hệ thống nội dung được sản xuất liên tục, đúng chiến lược và phù hợp với insight khách hàng. Phối hợp chặt chẽ với:
+                    </div>
+                    <ul class="custom-list">
+                        <li>Marketing Leader</li>
+                        <li>Growth / Performance Marketing</li>
+                        <li>Campaign & Community</li>
+                    </ul>
+                    <div class="desc-text" style="margin-top: 10px;">
+                        <i>Nhằm đảm bảo nội dung phục vụ cho mục tiêu <strong>traffic → lead → conversion.</strong></i>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-label">MỤC TIÊU CỐT LÕI (OBJECTIVES)</div>
+                    <div class="card-title">Định hướng công việc chính</div>
+                    <ul class="custom-list">
+                        <li>Xây dựng hệ thống nội dung marketing cho thương hiệu.</li>
+                        <li>Sản xuất nội dung video và social media chất lượng.</li>
+                        <li>Gia tăng traffic tự nhiên từ các kênh nội dung.</li>
+                        <li>Hỗ trợ hoạt động quảng cáo và campaign marketing.</li>
+                        <li>Phát triển và duy trì hình ảnh thương hiệu nhất quán.</li>
+                    </ul>
+                    
+                    <div class="card-label" style="margin-top: 30px;">KẾT QUẢ CÔNG VIỆC CẦN ĐẠT</div>
+                    <ul class="custom-list">
+                        <li>Hệ thống nội dung được sản xuất liên tục.</li>
+                        <li>Nội dung bám sát chiến lược marketing.</li>
+                        <li>Traffic từ content tăng trưởng ổn định.</li>
+                        <li>Hỗ trợ hiệu quả tối đa cho Quảng cáo (Ads).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-title">3.2 — Nhiệm vụ và Trách nhiệm</div>
+            <div class="grid-2">
+                <div class="card">
+                    <div class="card-label">1. PLANNING</div>
+                    <div class="card-title">Lập kế hoạch nội dung</div>
+                    <div class="desc-text">Chịu trách nhiệm xây dựng kế hoạch nội dung. Công việc gồm:</div>
+                    <ul class="custom-list">
+                        <li>Lập <strong>content calendar</strong> theo tuần / tháng.</li>
+                        <li>Nghiên cứu insight khách hàng.</li>
+                        <li>Nghiên cứu xu hướng nội dung (Trend).</li>
+                        <li>Phát triển concept nội dung cho thương hiệu.</li>
+                        <li>Đề xuất ý tưởng nội dung cho campaign marketing.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-label">2. PRODUCTION</div>
+                    <div class="card-title">Sản xuất nội dung</div>
+                    <div class="desc-text">Chịu trách nhiệm sản xuất và sáng tạo nội dung trực tiếp. Công việc gồm:</div>
+                    <ul class="custom-list">
+                        <li>Sản xuất video content (short video).</li>
+                        <li>Viết caption và nội dung social.</li>
+                        <li>Thiết kế visual (hình ảnh) cơ bản.</li>
+                        <li>Biên tập và edit video.</li>
+                        <li>Phát triển nội dung storytelling cho thương hiệu.</li>
+                    </ul>
+                    <div class="highlight-box">
+                        <div class="highlight-box-title">📌 CÁC ĐỊNH DẠNG NỘI DUNG CHÍNH:</div>
+                        Video short-form • Social media post • Content storytelling • UGC content
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-label">3. MANAGEMENT</div>
+                    <div class="card-title">Quản lý kênh Social Media</div>
+                    <div class="desc-text">Quản trị trực tiếp các kênh: Facebook, TikTok, Instagram.</div>
+                    <ul class="custom-list">
+                        <li>Đăng bài theo đúng kế hoạch (Calendar).</li>
+                        <li>Quản trị và sắp xếp luồng nội dung.</li>
+                        <li>Theo dõi hiệu quả nội dung hàng ngày.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-label">4. OPTIMIZATION</div>
+                    <div class="card-title">Tối ưu hiệu quả nội dung</div>
+                    <div class="desc-text">Liên tục cải thiện chất lượng để phục vụ chuyển đổi.</div>
+                    <ul class="custom-list">
+                        <li>Theo dõi chỉ số hiệu quả nội dung.</li>
+                        <li>Phân tích các nội dung đang ra số tốt.</li>
+                        <li>Tối ưu <strong>Hook (3s đầu)</strong> và Storytelling.</li>
+                        <li>Đề xuất giải pháp cải tiến nội dung cho Leader.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section-title">3.3 — Hệ thống Đo lường: KPI & Workload</div>
+            <div class="grid-2">
+                <div class="card" style="padding: 0; overflow: hidden;">
+                    <div style="padding: 24px; border-bottom: 1px solid var(--border-color);">
+                        <div class="card-title" style="margin-bottom: 5px;">KPI HIỆU SUẤT (Efficiency KPI)</div>
+                        <div class="desc-text" style="margin-bottom: 0;">Đánh giá dựa trên <strong>khối lượng</strong> và năng suất sản xuất nội dung.</div>
+                    </div>
+                    <div class="table-container" style="border: none; border-radius: 0;">
+                        <table style="min-width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th>KPI ĐO LƯỜNG</th>
+                                    <th>TARGET THÁNG</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Video content sản xuất</td>
+                                    <td><strong>10 - 15</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Content social (Bài đăng)</td>
+                                    <td><strong>30 - 50</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Content idea đề xuất</td>
+                                    <td><strong>≥ 20</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Hook test</td>
+                                    <td><strong>≥ 20</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Content calendar</td>
+                                    <td><strong>1 / tháng</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card" style="padding: 0; overflow: hidden;">
+                    <div style="padding: 24px; border-bottom: 1px solid var(--border-color);">
+                        <div class="card-title" style="margin-bottom: 5px;">KPI HIỆU QUẢ (Effectiveness KPI)</div>
+                        <div class="desc-text" style="margin-bottom: 0;">Đánh giá dựa trên <strong>tác động</strong> của nội dung đến traffic và lead.</div>
+                    </div>
+                    <div class="table-container" style="border: none; border-radius: 0;">
+                        <table style="min-width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th>KPI ĐO LƯỜNG</th>
+                                    <th>TARGET</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Traffic từ content</td>
+                                    <td><strong>≥ 20.000</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Lead từ content</td>
+                                    <td><strong>≥ 300</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Engagement rate (Tỉ lệ tương tác)</td>
+                                    <td><strong>≥ 4 - 6%</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Content save rate (Tỉ lệ lưu)</td>
+                                    <td><strong>≥ 2%</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Video completion rate (Tỉ lệ xem hết)</td>
+                                    <td><strong>≥ 30%</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card" style="padding: 0; overflow: hidden;">
+                    <div style="padding: 24px; border-bottom: 1px solid var(--border-color);">
+                        <div class="card-title" style="margin-bottom: 5px;">WORKLOAD THỜI GIAN</div>
+                        <div class="desc-text" style="margin-bottom: 0;">Phân bổ thời gian công việc hợp lý.</div>
+                    </div>
+                    <div class="table-container" style="border: none; border-radius: 0;">
+                        <table style="min-width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th>HOẠT ĐỘNG</th>
+                                    <th>TỶ LỆ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Sản xuất video</td>
+                                    <td><strong>40%</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Social content</td>
+                                    <td><strong>30%</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Content planning</td>
+                                    <td><strong>20%</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Phân tích nội dung</td>
+                                    <td><strong>10%</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card" style="padding: 0; overflow: hidden;">
+                    <div style="padding: 24px; border-bottom: 1px solid var(--border-color);">
+                        <div class="card-title" style="margin-bottom: 5px;">WORKLOAD THÁNG</div>
+                        <div class="desc-text" style="margin-bottom: 0;">Khối lượng công việc thực tế trong tháng.</div>
+                    </div>
+                    <div class="table-container" style="border: none; border-radius: 0;">
+                        <table style="min-width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th>HẠNG MỤC</th>
+                                    <th>KHỐI LƯỢNG</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Video content</td>
+                                    <td><strong>10 - 15</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Social content</td>
+                                    <td><strong>30 - 50</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Hook testing</td>
+                                    <td><strong>20</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Content planning</td>
+                                    <td><strong>1</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Campaign support content</td>
+                                    <td><strong>10 - 15</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function openTab(evt, tabId) {
+        var tabContents = document.getElementsByClassName("tab-content");
+        for (var i = 0; i < tabContents.length; i++) {
+            tabContents[i].classList.remove("active");
+        }
+
+        var tabLinks = document.querySelectorAll(".sub-navbar span");
+        for (var i = 0; i < tabLinks.length; i++) {
+            tabLinks[i].classList.remove("active");
+        }
+
+        document.getElementById(tabId).classList.add("active");
+        evt.currentTarget.classList.add("active");
+    }
+</script>
+
+</body>
+</html>
